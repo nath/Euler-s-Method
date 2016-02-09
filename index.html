@@ -9,46 +9,72 @@
     .narrow {
       width: 30px;
     }
+
     table {
       border-collapse: collapse;
     }
-    table, th, td {
+
+    table,
+    th,
+    td {
       border: 1px solid black;
     }
+
     #values th {
       width: 65px;
+    }
+
+    #canvas {
+      height: 800px;
+      width: 800px;
+    }
+
+    .input {
+      float: left;
+      width: 230px;
+    }
+
+    .content {
+      max-width: 1030px;
+      margin: auto;
     }
   </style>
 </head>
 
 <body>
-  <div>
-    y(<input type="text" class="narrow" id="x0">)=
-    <input type="text" class="narrow" id="y0">
+  <div class="content">
+    <div class="input">
+      <div>
+        y(<input type="text" class="narrow" id="x0">)=
+        <input type="text" class="narrow" id="y0">
+      </div>
+      <div>
+        dy/dx=
+        <input type="text" id="derivative">
+      </div>
+      <div>
+        h=
+        <input type="text" class="narrow" id="stepSize">
+      </div>
+      <div>
+        n=
+        <input type="text" class="narrow" id="numSteps">
+      </div>
+      <div>
+        y(<span id="yFinal"></span>)=<span id="result"></span>
+      </div>
+      <button id="calculate">Calculate</button>
+      <table id="values">
+        <tr>
+          <th>x</th>
+          <th>y</th>
+          <th>delta</th>
+        </tr>
+      </table>
+    </div>
+  <canvas id="canvas">
+  </canvas>
   </div>
-  <div>
-    dy/dx=
-    <input type="text" id="derivative">
-  </div>
-  <div>
-    h=
-    <input type="text" class="narrow" id="stepSize">
-  </div>
-  <div>
-    n=
-    <input type="text" class="narrow" id="numSteps">
-  </div>
-  <div>
-    y(<span id="yFinal"></span>)=<span id="result"></span>
-  </div>
-  <button id="calculate">Calculate</button>
-  <table id="values">
-    <tr>
-      <th>x</th>
-      <th>y</th>
-      <th>delta</th>
-    </tr>
-  </table>
 </body>
 
 </html>
