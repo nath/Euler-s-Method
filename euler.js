@@ -28,6 +28,7 @@ function euler() {
 
   var x = Number($('#x0').val());
   var y = Number($('#y0').val());
+  points.push({x: x, y: y});
   var deltaFn = $('#derivative').val();
   var h = Number($('#stepSize').val());
   var n = Number($('#numSteps').val());
@@ -37,7 +38,7 @@ function euler() {
   miny = y;
   maxy = y;
 
-  var delta = eval(deltaFn);
+  var delta = h*eval(deltaFn);
   table.append('<tr><td>'+x+'</td><td>'+y+'</td><td>'+delta.toFixed(6)+'</td></tr>');
 
   for (var i=0; i<n; i++) {
@@ -55,7 +56,6 @@ function euler() {
   }
   $('#result').text(y.toFixed(6));
 
-  console.log(minx + ' ' + maxx + ' ' + miny + ' ' + maxy);
   plotPoints();
 }
 
@@ -72,8 +72,6 @@ function plotPoints() {
 
   var xscale = 700/(maxx-minx);
   var yscale = 700/(maxy-miny);
-
-  console.log(xscale + ' ' + yscale);
 
   for (var i=0; i<points.length; i++) {
     ctx.beginPath();
